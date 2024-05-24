@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cys4s5qkfx3x1"]
+[gd_scene load_steps=7 format=3 uid="uid://cys4s5qkfx3x1"]
 
 [ext_resource type="PackedScene" uid="uid://1u3a8wy1e1om" path="res://player.tscn" id="1_gg0if"]
-[ext_resource type="PackedScene" uid="uid://6wcmj11e8lb1" path="res://player_hud.tscn" id="2_gkd5g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ub3xj"]
 
@@ -34,7 +33,5 @@ shape = SubResource("BoxShape3D_0leer")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8n2s7")
 
-[node name="Node3D" parent="." instance=ExtResource("1_gg0if")]
+[node name="player" parent="." instance=ExtResource("1_gg0if")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42085, 1.41593, 0.0305886)
-
-[node name="hud" parent="." instance=ExtResource("2_gkd5g")]

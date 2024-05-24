@@ -1,19 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://1u3a8wy1e1om"]
+[gd_scene load_steps=8 format=3 uid="uid://1u3a8wy1e1om"]
 
 [ext_resource type="Script" path="res://player_movement.gd" id="1_6w7pt"]
+[ext_resource type="PackedScene" uid="uid://6wcmj11e8lb1" path="res://player_hud.tscn" id="2_6aoyp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3mta"]
+albedo_color = Color(0.227451, 0.521569, 0.701961, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bal5r"]
+material = SubResource("StandardMaterial3D_f3mta")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k3m1j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwovx"]
+albedo_color = Color(0.678431, 0.952941, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rdmly"]
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_6w7pt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_bal5r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_k3m1j")
 
+[node name="FrontMarker" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.441092, 0, 0, 0, 0.441092, 0, 0, 0, 0.441092, 0.367944, 0.790498, 0)
+material_override = SubResource("StandardMaterial3D_mwovx")
+mesh = SubResource("SphereMesh_rdmly")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.94944)
+
+[node name="hud" parent="." instance=ExtResource("2_6aoyp")]
